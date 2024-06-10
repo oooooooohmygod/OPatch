@@ -58,7 +58,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: 8.8
+        gradle-version: 8.7
         gradle-home-cache-cleanup: true
 
     - name: Set up ccache
@@ -85,8 +85,8 @@ jobs:
         echo 'org.gradle.parallel=true' >> gradle.properties
         echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
         echo 'android.native.buildOutput=verbose' >> gradle.properties
-        ./gradlew wrapper 
-        ./gradlew buildAll 
+        ./gradlew wrapper --gradle-version=8.7
+        ./gradlew buildAll --gradle-version=8.7
 
     - name: Upload Debug artifact
       uses: actions/upload-artifact@v3
